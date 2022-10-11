@@ -70,14 +70,25 @@ public class AmazonStepDefinition {
         Assert.assertTrue(actualAramaSonucStr.contains(arananKelime));
     }
 
-    @Given("kullanıcı {string} sayfasına gider")
+
+    @Given("kullanıcı {string}sayfasına gider")
     public void kullanıcıSayfasınaGider(String arananUrl) {
         Driver.getDriver().get(ConfigReader.getProperty(arananUrl));
+        
     }
 
-    @When("url'nin {string} icerdiğini test edelim")
-    public void urlNinIcerdiğiniTestEdelim(String istenilenUrl) {
-        String actuelUrl=Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actuelUrl.contains(istenilenUrl));
+    @When("Url'nin {string} icerdiğini test edin")
+    public void urlNinIcerdiğiniTestEdin(String istenienUrl) {
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actualUrl.contains(istenienUrl));
+    }
+
+    @Then("kullanıcı {int} sn bekler")
+    public void kullanıcıSnBekler(int istenenSure) {
+        try {
+            Thread.sleep(istenenSure*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

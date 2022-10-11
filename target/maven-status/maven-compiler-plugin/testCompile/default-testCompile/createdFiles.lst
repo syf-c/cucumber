@@ -2,4 +2,5 @@ stepDefinitions\AmazonStepDefinition.class
 utilites\ConfigReader.class
 runners\Runner.class
 pages\amazonPage.class
+stepDefinitions\BlueRentACarStepDefinition.class
 utilites\Driver.class
